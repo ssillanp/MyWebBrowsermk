@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         historyIter = history.listIterator();
 
 
+
     }
 
     public void go(View v) {
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
             web.loadUrl(historyIter.previous().toString());
         }
     }
+
+    public void refresh(View v) {web.reload();}
 
     public void runJavaScript(View v){
         web.evaluateJavascript("javascript:shoutOut()", null);

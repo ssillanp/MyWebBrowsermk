@@ -1,11 +1,13 @@
 package com.example.mywebbrowser;
 /*
-* @author Sami Sillanpää
-* LUT Olio ohjelmointi Vko 10
-*
+ * @author Sami Sillanpää
+ * LUT Olio ohjelmointi Vko 10
+ *
  */
 
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -37,17 +39,16 @@ public class MainActivity extends AppCompatActivity {
         historyIter = history.listIterator();
 
 
-
     }
 
     public void go(View v) {
         URLBuilder url = new URLBuilder(urlItem.getText().toString());
-        if (historyIter != null){
+        if (historyIter != null) {
             historyIter.add(url.getUrl());
         } else {
             history.add(url.getUrl());
         }
-        while (historyIter.hasNext()){
+        while (historyIter.hasNext()) {
             historyIter.next();
             historyIter.remove();
         }
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public void next(View v) {
         if (historyIter.hasNext()) {
             String url = historyIter.next().toString();
-            if (url.equals(urlItem.getText().toString()) & historyIter.hasNext()){
+            if (url.equals(urlItem.getText().toString()) & historyIter.hasNext()) {
                 url = historyIter.next().toString();
             }
             System.out.println(url);
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void prev(View v) {
         if (historyIter.hasPrevious()) {
             String url = historyIter.previous().toString();
-            if (url.equals(urlItem.getText().toString()) & historyIter.hasPrevious()){
+            if (url.equals(urlItem.getText().toString()) & historyIter.hasPrevious()) {
                 url = historyIter.previous().toString();
             }
             System.out.println(url);
@@ -81,9 +82,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void refresh(View v) {web.reload();}
+    public void refresh(View v) {
+        web.reload();
+    }
 
-    public void runJavaScript(View v){
+    public void runJavaScript(View v) {
         web.evaluateJavascript("javascript:shoutOut()", null);
     }
 }

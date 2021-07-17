@@ -76,6 +76,7 @@
         android:layout_width="56dp"
         android:layout_height="48dp"
         android:layout_marginTop="56dp"
+        android:onClick="refresh"
         app:icon="@android:drawable/ic_menu_rotate"
         app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"

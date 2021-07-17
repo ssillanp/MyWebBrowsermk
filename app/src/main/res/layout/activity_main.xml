@@ -23,7 +23,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="false"
-        android:text="aarnela.fi"
         app:layout_constraintEnd_toStartOf="@+id/buttonGo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

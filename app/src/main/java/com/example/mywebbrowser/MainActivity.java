@@ -1,4 +1,10 @@
 package com.example.mywebbrowser;
+/*
+* @author Sami Sillanpää
+* LUT Olio ohjelmointi Vko 10
+*
+ */
+
 
 import android.view.View;
 import android.webkit.WebView;
@@ -45,19 +51,33 @@ public class MainActivity extends AppCompatActivity {
             historyIter.next();
             historyIter.remove();
         }
-        web.loadUrl(url.getUrl().toString());
+        String urlString = url.getUrl().toString();
+        web.loadUrl(urlString);
+        urlItem.setText(urlString);
     }
 
     public void next(View v) {
         if (historyIter.hasNext()) {
-            web.loadUrl(historyIter.next().toString());
+            String url = historyIter.next().toString();
+            if (url.equals(urlItem.getText().toString()) & historyIter.hasNext()){
+                url = historyIter.next().toString();
+            }
+            System.out.println(url);
+            urlItem.setText(url);
+            web.loadUrl(url);
         }
 
     }
 
     public void prev(View v) {
         if (historyIter.hasPrevious()) {
-            web.loadUrl(historyIter.previous().toString());
+            String url = historyIter.previous().toString();
+            if (url.equals(urlItem.getText().toString()) & historyIter.hasPrevious()){
+                url = historyIter.previous().toString();
+            }
+            System.out.println(url);
+            urlItem.setText(url);
+            web.loadUrl(url);
         }
     }
 

@@ -1,4 +1,10 @@
 package com.example.mywebbrowser;
+/*
+ * @author Sami Sillanpää
+ * LUT Olio ohjelmointi Vko 10
+ *
+ */
+
 
 import java.net.MalformedURLException;
 import java.net.URL;
